@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HW Counter</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<button id="start">START</button>
+	<div>
+    	<img src="https://avatars.mds.yandex.net/get-mpic/1362400/img_id6243220799065997047.jpeg/9hq" alt="">
+  </div>
+  <div id="count">0</div>
+  <button id="stop">STOP</button>
+  <script>
+  	var startBtn=document.querySelector("#start");
+  	var stopBtn=document.querySelector("#stop");
+  	var counterBlock=document.querySelector("#count");
+  	var counter=0;
+
+  	startBtn.onclick= function(){
+  		alert("Поехали!");
+  		setInterval( function(){
+  			var counterBlock.innerHtml = counter;
+  			counter=++;
+  		},1000);
+
+  	}
+
+  	stopBtn.onclick= function(){
+  		alert("Приехали!");
+  		
+  		
+  	}
+
+  </script>
+</body>
+</html>

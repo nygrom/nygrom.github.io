@@ -1,0 +1,27 @@
+div{
+  position:relative;
+}
+#count{
+  position:absolute;
+  top:292px;
+  left:159px;
+  background:#a6a296;
+  font-size:40px;
+  text-align:center;
+  padding: 20px 96px;
+}
+#start{
+	font-size: 50px;
+	text-align: center;
+	margin-left: 165px;
+	border-radius: 15px;
+	outline: none;
+}
+
+#stop{
+	font-size: 50px;
+	text-align: center;
+	margin-left: 177px;
+	border-radius: 15px;
+	outline: none;
+}	
