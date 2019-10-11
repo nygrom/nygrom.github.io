@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lesson14</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas" ></canvas>  
+  <script>
+    var  
+      canv = document.getElementById('canvas'),
+      ctx = canv.getContext('2d');
+      isMouseDown = false;
+
+      canv.width = window.innerWidth;
+      canv.height = window.innerHeight;
+
+
+      canv.addEventListener('mousedown', function(e){
+          isMouseDown = true;
+      });
+
+      canv.addEventListener('mouseup', function(e){
+          isMouseDown = false;
+          ctx.beginPath();
+      });
+
+      ctx.lineWidth = 20;
+
+      canv.addEventListener('mousemove', function(e){
+        if(isMouseDown)
+        {
+          ctx.lineTo(e.clientX, e.clientY);
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.arc(e.clientX, e.clientY, 10,0, Math.PI*2);
+          ctx.fill();
+          
+          ctx.beginPath();
+          ctx.moveTo(e.clientX, e.clientY);
+          
+        }
+
+      });
+
+
+
+
+  </script>
+</body>
+</html>
