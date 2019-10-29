@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+  <div id="endgame">
+    <img src="img/gameover.png" alt="gameover">
+  </div>
+
+
+  <canvas id="canvas" width="864" height="486"></canvas>
+  <div id="choice">
+    <div id="blure">
+        <div id="text">choose your character</div>
+        <a href="#" id="player1"><img src="img/rick.png" alt=""></a>
+        <a href="#" id="player2"><img src="img/morty.png" alt=""></a>
+    </div>
+    
+    
+  </div>
+
+
+  <script>
+
+
+
+    var cvs = document.getElementById("canvas");
+    var ctx = cvs.getContext("2d");
+
+    var bird = new Image();
+    var bg = new Image();
+    var fg = new Image();
+    var gameOver = new Image();
+    var pipeUp = new Image();
+    var pipeBottom = new Image();
+    var endGame = document.getElementById('endgame');
+
+    var pl1 = document.getElementById('player1');
+    var pl2 = document.getElementById('player2');
+
+    // Звуковые файлы
+    var fly = new Audio();
+    var score_audio = new Audio();
+    var fallDown = new Audio();
+    var mainTheme = new Audio();
+
+    mainTheme.onload = ()=>{
+      mainTheme.play()
+    }
+
+    fly.src = "audio/fly.wav";
+    score_audio.src = "audio/score.wav";
+    fallDown.src = "audio/fallDown.mp3";
+    mainTheme.src = "audio/theme.mp3";
+
+    
+
+
+    bird.src = "img/bird.png";
+    bg.src = "img/bg.png";
+    fg.src = "img/fg.png";
+    gameOver.scr = "img/gameover.png";
+    pipeUp.src = "img/pipeUp.png";
+    pipeBottom.src = "img/pipeBottom.png";
+
+
+
+  // Стартовый эффект HOVER
+
+      pl1.addEventListener("mouseover", blure);
+      pl2.addEventListener("mouseover", blure);
+
+          function blure(){
+            document.getElementById("blure").style.background='rgba(17, 24, 59, .7)';
+            document.getElementById("text").style.fontSize='60px';
+      }
+
+      pl1.addEventListener("mouseout", blureoff);
+      pl2.addEventListener("mouseout", blureoff);
+
+          function blureoff(){
+            document.getElementById("blure").style.background='rgba(17, 24, 59, 0)';
+            document.getElementById("text").style.fontSize='50px';
+          }
+
+
+///////////////////////////////////////
+
+
+    /// Выбор персонажа 
+
+    // pl1.addEventListener("click", mainScript);        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // pl2.addEventListener("click", mainScript);           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    pl1.addEventListener("click", startGame1);   
+    pl2.addEventListener("click", startGame2);
+
+
+    function startGame1(){
+      
+      bird.src = "img/rickbird11.png";
+      requestAnimationFrame(draw);
+      cvs.style.display='block';
+      document.getElementById("choice").style.display='none';
+    };
+
+
+    function startGame2(){
+      requestAnimationFrame(draw);
+      cvs.style.display='block';
+      document.getElementById("choice").style.display='none';
+    };
+
+
+    // function mainScript(){            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+    // При нажатии на какую-либо кнопку/////////////////////////////////////////////////////
+
+          document.addEventListener("click", moveUp);
+          document.addEventListener("touchstart", moveUp);
+
+          function moveUp() {
+            yPos -= 22;
+            fly.play();
+            //  ctx.rotate(bird,-20 * Math.PI / 180);  
+
+          }
+
+    // Создание блоков/////////////////////////////////////
+
+        var gap = 130;
+
+        var pipe = [];
+
+        pipe[0] = {
+          x: cvs.width,
+          y: 0
+        }
+
+        var score = 0;
+
+
+    // Позиция персонажа///////////////////////////////////////////////////////////////////////
+
+            var xPos = 300;
+            var yPos = 150;
+            var grav = 1.1;
+
+            function draw() {
+              mainTheme.play();
+              ctx.drawImage(bg, 0, 0);
+
+
+
+              for (var i = 0; i < pipe.length; i++) {
+                ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
+                ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + pipeUp.height + gap);
+
+                pipe[i].x--;
+
+                if (pipe[i].x == 500) {
+                  pipe.push({
+                    x: cvs.width,
+                    y: Math.floor(Math.random() * pipeUp.height) - pipeUp.height
+                  });
+                }
+
+                function reloadDelay() { location.reload() };
+
+
+
+ // Отслеживание прикосновений//////////////////////////////////////////////////////////////////////
+
+
+
+        if (xPos + bird.width >= pipe[i].x
+          && xPos <= pipe[i].x + pipeUp.width
+          && (yPos <= pipe[i].y + pipeUp.height
+            || yPos + bird.height >= pipe[i].y + pipeUp.height + gap) || yPos + bird.height >= cvs.height - fg.height) {
+
+            fallDown.play();
+
+            endGame.style.display = "block";
+
+
+             grav = 0;
+          setTimeout(reloadDelay, 1000); // Перезагрузка страницы
+        }
+
+        if (pipe[i].x == 220) {
+          score++;
+          score_audio.play();
+         }
+      }
+
+      ctx.drawImage(fg, 0, cvs.height - fg.height);
+      ctx.drawImage(bird, xPos, yPos);
+
+      yPos += grav;
+
+      ctx.fillStyle = "white";
+      ctx.font = "bold 30px Comic Sans MS";
+      ctx.shadowColor="black";
+      ctx.shadowBlur=10;
+      ctx.fillText("Счет: " + score, 10, cvs.height - 20);
+
+      requestAnimationFrame(draw);
+
+    }
+    // pipeBottom.onload = draw;
+
+  // };
+
+
+
+
+  </script>
+</body>
+
+</html>
