@@ -21,7 +21,14 @@ div{
 #stop{
 	font-size: 50px;
 	text-align: center;
-	margin-left: 177px;
+	margin-left: 78px;
 	border-radius: 15px;
 	outline: none;
 }	
+#reset{
+	font-size: 50px;
+	text-align: center;
+	margin-left: 25px;
+	border-radius: 15px;
+	outline: none;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lesson 8 to do list</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="main">
+		<h1>To-Do List</h1>
+		<input id="addTusk" type="text">
+		<button type="submit" id="buttonAdd">add tusk</button>
+		<div id="tuskArea">
+		</div>
+	</div>
+
+	<!-- <script type="text/template" id="item-template">
+      <div>
+        <span>{{i}}# </span>
+        <strong>{{firstName}} {{lastName}}</strong>
+        <i class='text-success'>{{text}}</i>
+        <button id='removeBtn'>Remove</button>
+      </div>
+    </script> -->
+
+  <script>
+  	var btnAdd=document.querySelector("#buttonAdd");
+  	var tusk=document.querySelector("#addTusk");
+  	var divList=document.querySelector("#tuskArea");
+  	
+  	function _(selector) {
+    return document.querySelectorAll(selector);
+  }
+
+  	var i=1;
+  	
+
+
+ //пример 1______________________________________________________
+  	
+		 //  	tusk.addEventListener('submit', function(event){
+		 //    var txt = task.value;
+		 //    task.value = "";
+
+		 //    divList.innerHTML=divList.innerHTML + "<div>" + "-  " + txt +"   "+ "<button id='removeBtn'>Done!</button>" + "</div>";
+			// });
+
+
+
+  	// btnAdd.onclick=function(){
+  	// 	var txt=tusk.value;
+  	// 	divList.innerHTML=divList.innerHTML + "<div>" + "-  " + txt +"   "+ "<button id='removeBtn'>Done!</button>" + "</div>";
+  	// 	tusk.value="";
+  	// };
+
+  
+
+ //Пример2____________________________________________
+
+ 	// btnAdd.onclick=function(){
+  // 	var txt=tusk.value;
+  // 	tusk.value="";
+
+  // 	var item = document.createElement('div');
+  //   item.innerHTML = txt;
+    
+
+  //   var removeBtn = document.createElement('button');
+  //   // removeBtn.idList.add('removeBtn');  как добавить ID  !!!!!
+  //   removeBtn.innerHTML = "remove";
+  //   removeBtn.onclick = function(){
+  //     //удаляем
+  //   }
+    
+  //   item.appendChild(removeBtn);
+  //   divList.appendChild(item);
+
+
+  // 	};
+
+ //Пример3_____________________________________________
+
+  	// 	btnAdd.onclick=function(){
+  	// 	var txt=tusk.value;
+  	// 	tusk.value="";
+
+  	// 	divList.insertAdjacentHTML('beforeEnd', [
+   //    '<div>',
+   //      '<strong>' + txt + '</strong>',
+   //      '<button id="removeBtn">Done!</button>',
+   //    '</div>'
+   //  ].join('') );
+
+  	// };
+
+ //Пример4________________________________________________________
+
+ 		btnAdd.onclick=function(){
+  		var txt=tusk.value;
+  		tusk.value="";
+
+ 	var template = `
+    <div>
+      <strong> ${txt} </strong>
+      <button id="removeBtn">Done!</button>
+    </div>
+    `;  //экранирование?
+
+    divList.insertAdjacentHTML('beforeEnd', template);   };
+
+
+
+ //Пример5________________________________________________________
+
+ 	// 	btnAdd.onclick=function(){
+  // 		var txt=tusk.value;
+  // 		tusk.value="";
+
+ 	// var user = {
+  //     firstName: "Barak",
+  //     lastName: "Obama",
+  //     text: txt
+  //   }
+
+
+  //   var template = document.querySelector('#item-template').innerHTML;
+
+  //   var tmp = template;
+
+  //   divList.insertAdjacentHTML('beforeEnd', tmp); 
+
+		// };
+
+
+
+
+
+
+  	document.querySelector("#tuskArea").onclick = function(event){
+    var el = event.target;
+    if (el.matches('button')) 
+      el.closest('div').remove();
+ 		}
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>lesson19</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="wrapper">
+		<button id="forward">forward</button>
+		<button id="left">left</button>
+		<button id="stop">stop</button>
+		<button id="right">right</button>
+		<button id="back">back</button>
+		<button id="speedUp">speed up</button>
+		<button id="speedDown">speed down</button>
+	</div>
+  <script>
+  	var forw =document.getElementById('forward');
+  	var lef =document.getElementById('left');
+  	var st =document.getElementById('stop');
+  	var righ =document.getElementById('right');
+  	var bac =document.getElementById('back');
+  	var spUp =document.getElementById('speedUp');
+  	var spDow =document.getElementById('speedDown');
+
+
+
+
+
+  	forw.addEventListener("click", f1);
+  	lef.addEventListener("click", f2);
+  	st.addEventListener("click", f3);
+  	righ.addEventListener("click", f4);
+  	bac.addEventListener("click", f5);
+  	spUp.addEventListener("click", f6);
+  	spDow.addEventListener("click", f7);
+
+
+  	function f1(){
+		fetch('http://192.168.1.227/fforward')
+  	};
+  	function f2(){
+		fetch('http://192.168.1.227/fleft')
+  	};
+  	function f3(){
+		fetch('http://192.168.1.227/stop')
+  	};
+  	function f4(){
+		fetch('http://192.168.1.227/fright')
+  	};
+  	function f5(){
+		fetch('http://192.168.1.227/fback')
+  	};
+  	function f6(){
+		fetch('http://192.168.1.227/')
+  	};
+  	function f7(){
+		fetch('http://192.168.1.227/') 		
+  	};
+  	
+  </script>
+</body>
+</html>

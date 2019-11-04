@@ -1,0 +1,13 @@
+button {
+	margin: 10px 10px ;
+	display: block;
+	padding: 10px 20px;
+	box-shadow: -5px -5px 5px grey;
+}
+
+#left, #right, #stop{
+	display: inline-block;
+}
+#speedUp, #speedDown{
+	display: inline-block;
+}

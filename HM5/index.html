@@ -12,27 +12,48 @@
   </div>
   <div id="count">0</div>
   <button id="stop">STOP</button>
+  <button id="reset">RESET</button>
   <script>
   	var startBtn=document.querySelector("#start");
   	var stopBtn=document.querySelector("#stop");
   	var counterBlock=document.querySelector("#count");
+    var resBtn=document.querySelector("#reset");
   	var counter=0;
     var timer
 
   	startBtn.onclick= function(){
-  		alert("Поехали!");
+  		// alert("Поехали!");
   		timer=setInterval( function(){
-  			counterBlock.innerHtml = counter;
-  			counter++;
+  			counterBlock.innerHTML = counter;
+  			
+
+
+        if (counter > 9){
+      counterBlock.style.padding="20px 86px";
+    }
+    else {
+      counterBlock.style.padding="20px 96px";
+    };
+
+
+
+
+        counter++;
   		},1000);
 
   	}
 
   	stopBtn.onclick= function(){
-  		alert("Приехали!");
+  		// alert("Приехали!");
   		clearInterval(timer);
   		
   	}
+    resBtn.onclick= function(){
+      counter=0;
+      counterBlock.innerHTML = "0";
+    }
+      
+      
 
   </script>
 </body>

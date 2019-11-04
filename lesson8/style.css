@@ -1,0 +1,49 @@
+
+
+#buttonAdd{
+	padding:10px 20px;
+	font-size: 25px;
+	border-radius: 10px;
+	margin-left: 20px;
+	outline: none;
+}
+.main{
+	padding-left: 100px;
+}
+
+h1{
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 50px;
+}
+
+.main #addTusk{
+	padding:10px 10px;
+	font-size: 25px;
+	font-family: ‘Comic Sans MS’, cursive;
+	box-shadow: -10px -10px 5px grey;
+	outline: none;
+}
+
+ .main #tuskArea{
+ 	width: 600px;
+ 	border: 3px solid grey;
+ 	border-radius: 10px;
+	font-size: 25px;
+	font-weight: 600;
+	font-family: ‘Comic Sans MS’, cursive;
+	padding: 50px 20px;
+	margin-top:25px;
+	box-sizing: content-box;
+
+}
+
+#removeBtn{
+	border:2px solid green;
+	border-radius: 5px;
+	outline: none;
+	background:linear-gradient(to bottom, lime, green);
+	color: white;
+}
+#removeBtn:hover{
+	background:linear-gradient(to top, lime, green);
+}

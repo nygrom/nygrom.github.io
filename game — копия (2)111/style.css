@@ -1,8 +1,8 @@
 canvas{
-    /* margin: 0 auto; */
+    margin: 0 auto;
     border: 3px solid black;
     display:none;
-    
+    position: relative;
 }
 
 body{
@@ -10,13 +10,10 @@ body{
     
 }
 
-.container-fluid{
-    position: relative;
-}
 #endgame{
     position: absolute;
     top: 100px;
-    left: 215px;
+    left: 515px;
     display: none;
     z-index: 3;
 
@@ -24,7 +21,7 @@ body{
 }
 
 #choice{
-    /* margin: 0 auto; */
+    margin: 0 auto;
     display: block;
     position: relative;
     background-image: url("img/bg2.jpg");
