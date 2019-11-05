@@ -1,22 +1,30 @@
 canvas{
-    /* margin: 0 auto; */
+    margin: 0 auto;
     border: 3px solid black;
     display:none;
+    
+    cursor: pointer;
     
 }
 
 body{
-    background:rgba(17, 15, 15, 0.808);
+    background: rgba(0, 0, 0, 0.919);
+    
     
 }
 
-.container-fluid{
+
+.container{
     position: relative;
+    
+
 }
+
+
 #endgame{
     position: absolute;
     top: 100px;
-    left: 215px;
+    left: 500px;
     display: none;
     z-index: 3;
 
@@ -24,7 +32,7 @@ body{
 }
 
 #choice{
-    /* margin: 0 auto; */
+    margin: 0 auto;
     display: block;
     position: relative;
     background-image: url("img/bg2.jpg");
@@ -52,7 +60,7 @@ body{
     left: 0px;
     height:486px;
     width:864px;
-    background: rgba(17, 24, 59, 0);
+    background: rgba(35, 37, 44, 0);
 }
 
 
@@ -63,6 +71,7 @@ body{
     position: absolute;
     top: 130px;
     left: 150px;
+    transition: all .5s ease;
     }
 
 #player2{
@@ -70,28 +79,17 @@ body{
     position: absolute;
     top: 155px;
     left: 495px;
+    transition: all .5s ease;
 }
 
 #player1:hover{
     transform: scale(1.1);
+    
 }
 
 #player2:hover{
     transform: scale(1.1); 
+    
 
 }
 
-/* a:hover p{
-    font-size: 60px; 
-} */
-
-
-
-
- /* #player1:hover .blure{
-    background: rgba(17, 24, 59, 0.502);
-}
-
-#player2:hover .blure{
-    background: rgba(17, 24, 59, 0.502);
-}  */
