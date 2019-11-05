@@ -2,16 +2,21 @@ canvas{
     margin: 0 auto;
     border: 3px solid black;
     display:none;
+    
     cursor: pointer;
     
 }
 
 body{
-    background: rgba(0, 0, 0, 0.919);  
+    background: rgba(0, 0, 0, 0.919);
+    
+    
 }
 
+
 .container{
-    position: relative;   
+    position: relative;
+    
 
 }
 
@@ -22,6 +27,8 @@ body{
     left: 500px;
     display: none;
     z-index: 3;
+
+
 }
 
 #choice{
